@@ -23,7 +23,6 @@ MCP server for [Verse language](https://verselang.github.io/book/) documentation
 claude mcp add verse-docs -- uvx --from git+https://github.com/BurgersJackson/verse-mcp verse-mcp
 ```
 
-Replace `BurgersJackson` with the GitHub username or org where the repo is hosted.
 
 ### pip
 
@@ -53,11 +52,16 @@ verse-mcp
   VERSE_MCP_CACHE_DIR=/tmp/verse-cache verse-mcp
   ```
 
-## CLAUDE.md snippet
+## Setup: Tell Claude to use the tools
 
-Add this to your project's `CLAUDE.md` to instruct Claude to use the Verse docs tools:
+Installing the MCP server gives Claude access to the tools, but Claude won't use them automatically unless you tell it to. Add the snippet below to your `CLAUDE.md` file.
 
-```markdown
+**Global (recommended)** — add it to `~/.claude/CLAUDE.md` and it applies to every project and session automatically:
+
+```bash
+# Linux/macOS
+cat >> ~/.claude/CLAUDE.md << 'EOF'
+
 ## Verse Language Support
 
 When working with Verse code (.verse files, UEFN projects):
@@ -69,4 +73,7 @@ When working with Verse code (.verse files, UEFN projects):
    - `get_verse_api_module` for full module/class definitions
 2. On first use in a session, run `cache_all_chapters` to pre-download docs.
 3. When using UEFN APIs, always verify class names and method signatures with `search_verse_api`.
+EOF
 ```
+
+**Per-project** — add the same snippet to a `CLAUDE.md` in your project root if you only want it for a specific project.
