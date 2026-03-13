@@ -20,22 +20,22 @@ MCP server for [Verse language](https://verselang.github.io/book/) documentation
 ### Claude Code (recommended)
 
 ```bash
-claude mcp add verse-docs -- uvx --from git+https://github.com/USER/verse-mcp verse-mcp
+claude mcp add verse-docs -- uvx --from git+https://github.com/BurgersJackson/verse-mcp verse-mcp
 ```
 
-Replace `USER` with the GitHub username or org where the repo is hosted.
+Replace `BurgersJackson` with the GitHub username or org where the repo is hosted.
 
 ### pip
 
 ```bash
-pip install git+https://github.com/USER/verse-mcp.git
+pip install git+https://github.com/BurgersJackson/verse-mcp.git
 verse-mcp
 ```
 
 ### Local development
 
 ```bash
-git clone https://github.com/USER/verse-mcp.git
+git clone https://github.com/BurgersJackson/verse-mcp.git
 cd verse-mcp
 pip install -e .
 verse-mcp
