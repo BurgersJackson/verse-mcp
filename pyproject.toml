@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verse-mcp"
+version = "0.1.0"
+description = "MCP server for Verse language docs and UEFN API reference"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "mcp[cli]",
+    "httpx",
+    "beautifulsoup4",
+]
+
+[project.scripts]
+verse-mcp = "verse_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/verse_mcp"]
